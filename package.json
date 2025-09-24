@@ -1,0 +1,28 @@
+{
+  "name": "procesos-scheduler",
+  "version": "1.0.0",
+  "description": "Simulador de planificación de procesos: FCFS, SJF, SRTF, RR (Node.js + Express + Socket.IO)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "cross-env NODE_ENV=development node server.js"
+  },
+  "keywords": [
+    "scheduling",
+    "procesos",
+    "FCFS",
+    "SJF",
+    "SRTF",
+    "Round Robin",
+    "SO"
+  ],
+  "author": "Equipo",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
+}
