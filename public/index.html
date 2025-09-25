@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <center><title>Simulador de Planificación de Procesos</title></center>
+  
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <nav class="topbar">
+    <h1>Simulador de procesos</h1>
+    <div class="meta">Unidad de tiempo: <strong id="tickInfo">—</strong></div>
+  </nav>
+
+<nav class="topbar">
+  <div class="meta">
+    Unidad de tiempo: <strong id="tickInfo">—</strong>
+    <button id="themeToggle" class="btn btn-ghost" title="Cambiar tema">🌙</button>
+  </div>
+</nav>
+
+  <main class="container">
+    <section class="card">
+      <h2>1) Crear procesos</h2>
+      <div class="grid">
+        <label>Nombre
+          <input id="name" placeholder="P?" />
+        </label>
+        <label>Tiempo en CPU (burst)
+          <input id="burst" type="number" min="1" />
+        </label>
+        <label>Instante de llegada (t)
+          <input id="arrival" type="number" min="0" />
+        </label>
+        <button id="addBtn" class="btn">Agregar proceso</button>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>PID</th><th>Nombre</th><th>Burst</th><th>Llegada</th><th></th>
+          </tr>
+        </thead>
+        <tbody id="draftTbody"></tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>2) Elegir algoritmo</h2>
+      <div class="grid">
+        <label>Algoritmo
+          <select id="algorithm">
+            <option value="FCFS">FCFS</option>
+            <option value="SJF">SJF</option>
+            <option value="SRTF">SRTF</option>
+            <option value="RR">Round Robin</option>
+          </select>
+        </label>
+        <label>Quantum (solo RR)
+          <input id="quantum" type="number" min="1" value="2" />
+        </label>
+        <button id="startBtn" class="btn btn-primary">Iniciar simulación</button>
+        <button id="stopBtn" class="btn btn-secondary" disabled>Detener</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3) Estado de la simulación</h2>
+      <div class="grid3">
+        <div class="info"><strong>t</strong>: <span id="timeNow">0</span></div>
+        <div class="info"><strong>Algoritmo</strong>: <span id="algNow">-</span></div>
+        <div class="info"><strong>Quantum</strong>: <span id="qNow">-</span></div>
+      </div>
+
+      <div class="grid2">
+        <div>
+          <h3>CPU</h3>
+          <div id="cpuNow" class="cpu">—</div>
+          <h3>Cola de listos</h3>
+          <ul id="readyList" class="list"></ul>
+        </div>
+        <div>
+          <h3>Historial (reciente)</h3>
+          <ul id="history" class="list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>4) Procesos finalizados y métricas</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>PID</th><th>Nombre</th><th>Burst</th><th>Llegada</th>
+            <th>Inicio</th><th>Fin</th><th>Turnaround</th><th>Espera</th><th>Respuesta</th>
+          </tr>
+        </thead>
+        <tbody id="doneTbody"></tbody>
+      </table>
+    </section>
+  </main>
+
+<script src="/socket.io/socket.io.js"></script>
+<script type="module" src="/app.js"></script>
+
+</body>
+</html>
