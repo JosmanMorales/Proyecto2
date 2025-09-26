@@ -3,22 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <center><title>Simulador de Planificación de Procesos</title></center>
-  
-  <link rel="stylesheet" href="/styles.css" />
+  <title>Simulador de Planificación de Procesos</title>
+
+  <!-- Asegúrate que el archivo se llame EXACTO 'style.css' en /public -->
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
   <nav class="topbar">
     <h1>Simulador de procesos</h1>
-    <div class="meta">Unidad de tiempo: <strong id="tickInfo">—</strong></div>
+    <div class="meta">
+      Unidad de tiempo: <strong id="tickInfo">—</strong>
+      <button id="themeToggle" class="btn btn-ghost" title="Cambiar tema">🌙</button>
+    </div>
   </nav>
-
-<nav class="topbar">
-  <div class="meta">
-    Unidad de tiempo: <strong id="tickInfo">—</strong>
-    <button id="themeToggle" class="btn btn-ghost" title="Cambiar tema">🌙</button>
-  </div>
-</nav>
 
   <main class="container">
     <section class="card">
@@ -100,8 +97,7 @@
     </section>
   </main>
 
-<script src="/socket.io/socket.io.js"></script>
-<script type="module" src="/app.js"></script>
-
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="module" src="/app.js"></script>
 </body>
 </html>
