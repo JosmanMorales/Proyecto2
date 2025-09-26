@@ -19,10 +19,18 @@
   "author": "Equipo",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.19.2",
-    "socket.io": "^4.7.5"
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
   },
   "devDependencies": {
     "cross-env": "^7.0.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JosmanMorales/Proyecto2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JosmanMorales/Proyecto2/issues"
+  },
+  "homepage": "https://github.com/JosmanMorales/Proyecto2#readme"
 }
